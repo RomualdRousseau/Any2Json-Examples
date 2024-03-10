@@ -1,9 +1,8 @@
 # Any2Json-Examples
 
 ![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)
-![Snyk security score](https://snyk-widget.herokuapp.com/badge/mvn/com.github.romualdrousseau/any2json-examples/badge.svg)
 ![Snyk Known Vulnerabilities](https://snyk.io/test/github/com.github.romualdrousseau/any2json-examples/badge.svg)
-![Build](https://github.com/RomualdRousseau/Any2Json/actions/workflows/build.yml/badge.svg)
+![Build](https://github.com/RomualdRousseau/Any2Json-Examples/actions/workflows/build.yml/badge.svg)
 
 This repository contains a number of examples that demonstrates how you can use the [Any2Json](https://github.com/RomualdRousseau/Any2Json)
 to load documents from "real life".
