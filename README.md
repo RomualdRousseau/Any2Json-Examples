@@ -23,15 +23,43 @@ of data services available to organizations.
 * The Java Developer Kit, version 17.
 * Apache Maven, version 3.0 or above.
 
-### Build and run the examples locally
+### Build and run the tutorials locally
 
-Run the examples:
+Run the following command line:
 
 ```bash
 mvn clean package
+```
+
+#### Run Tutorial 1
+
+Run the following command line:
+
+```bash
 java -cp "target/classes:target/lib/*" com.github.romualdrousseau.any2json.examples.Tutorial1
+```
+
+#### Run Tutorial 2
+
+Run the following command line:
+
+```bash
 java -cp "target/classes:target/lib/*" com.github.romualdrousseau.any2json.examples.Tutorial2
+```
+
+#### Run Tutorial 3
+
+Run the following command line:
+
+```bash
 java -cp "target/classes:target/lib/*" com.github.romualdrousseau.any2json.examples.Tutorial3
+```
+
+#### Run Tutorial 4
+
+Run the following command line:
+
+```bash
 java -cp "target/classes:target/lib/*" com.github.romualdrousseau.any2json.examples.Tutorial4
 ```
 
