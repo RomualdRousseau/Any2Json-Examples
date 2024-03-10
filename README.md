@@ -31,6 +31,22 @@ of data services available to organizations.
 
 For more details, see the [Installation Guide](https://maven.apache.org/install.html).
 
+#### Update dependencies
+
+Run the following command line:
+
+```bash
+mvn -DcreateChecksum=true versions:display-dependency-updates
+```
+
+#### Update pom.xml plugins
+
+Run the following command line:
+
+```bash
+mvn -DcreateChecksum=true versions:display-plugin-updates
+```
+
 ### Build and run the tutorials locally
 
 To build the tutorials, run the following command line:
