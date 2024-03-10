@@ -25,7 +25,7 @@ of data services available to organizations.
 
 ### Build and run the tutorials locally
 
-Run the following command line:
+To build the tutorials, run the following command line:
 
 ```bash
 mvn clean package
