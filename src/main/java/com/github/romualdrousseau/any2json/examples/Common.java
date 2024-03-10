@@ -1,7 +1,12 @@
 package com.github.romualdrousseau.any2json.examples;
 
 import java.io.File;
+import java.io.IOException;
+import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.nio.file.Path;
 
 import org.slf4j.Logger;
@@ -22,6 +27,22 @@ public class Common {
 
     public static <T> Model loadModel(final String modelName, final Class<T> clazz) {
         return new Model(JSON.loadObject(Common.getResourcePath(String.format("/models/%s.json", modelName), clazz)));
+    }
+
+    public static Model loadModelFromGitHub(final String modelName) {
+        try {
+            final var uri = String.format("https://raw.githubusercontent.com/RomualdRousseau/Any2Json-Models/main/%s/%s.json", modelName, modelName);
+            final var client = HttpClient.newHttpClient();
+            final var request = HttpRequest.newBuilder().uri(URI.create(uri)).build();
+            final var response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            if (response.statusCode() != 200) {
+                throw new IOException("Error loading model");
+            }
+            LOGGER.info("Loaded model: " + modelName);
+            return new Model(JSON.objectOf(response.body()));
+        } catch (final IOException | InterruptedException x) {
+            throw new RuntimeException(x);
+        }
     }
 
     public static <T> File loadData(final String fileName, final Class<T> clazz) {

@@ -14,7 +14,7 @@ public class Tutorial4 implements Runnable {
 
     @Override
     public void run() {
-        final var model = Common.loadModel("sales-english", this.getClass());
+        final var model = Common.loadModelFromGitHub("sales-english");
 
         // Add product name entity to the model
 
