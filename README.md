@@ -23,6 +23,10 @@ of data services available to organizations.
 * The Java Developer Kit, version 17.
 * Apache Maven, version 3.0 or above.
 
+### Apache Maven Installation
+
+For more details, see the [Installation Guide](https://maven.apache.org/install.html).
+
 ### Build and run the tutorials locally
 
 To build the tutorials, run the following command line:
