@@ -89,7 +89,7 @@ java -cp "target/classes:target/lib/*" com.github.romualdrousseau.any2json.examp
 
 ### Documentation
 
-Please find the documentation on [github.io](https://romualdrousseau.github.io/Any2Json-Documents/).
+* Find the documentation [here](https://romualdrousseau.github.io/Any2Json-Documents/).
 
 ## Authors
 
