@@ -27,7 +27,7 @@ public class Tutorial5 implements Runnable {
 
         final var tableParser = new LayexTableParser(
                 List.of("(v.$)+"),
-                List.of("(()(.+$.+$))(()(E.+$)())+(e.+$)"));
+                List.of("(()(S+$S+$))(()([/^TOTAL/|v].+$)())+(/TOTAL/.+$)"));
         model.registerTableParser(tableParser);
 
         final var file = Common.loadData("document with pivot.xlsx", this.getClass());
