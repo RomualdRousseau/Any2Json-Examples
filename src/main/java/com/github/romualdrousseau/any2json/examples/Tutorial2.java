@@ -33,7 +33,7 @@ public class Tutorial2 implements Runnable {
         try (final var doc = DocumentFactory.createInstance(file, "UTF-8")
                 .setModel(model)
                 .setHints(EnumSet.of(Document.Hint.INTELLI_LAYOUT))
-                .setRecipe("sheet.setExtractionThreshold(0)")) {
+                .setRecipe("sheet.setCapillarityThreshold(0)")) {
 
             doc.sheets().forEach(s -> Common.addSheetDebugger(s).getTable().ifPresent(t -> {
                 Common.printHeaders(t.headers());

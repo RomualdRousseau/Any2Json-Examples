@@ -32,8 +32,8 @@ public class Tutorial3 implements Runnable {
         final var file = Common.loadData("document with defect.xlsx", this.getClass());
         try (final var doc = DocumentFactory.createInstance(file, "UTF-8")
                 .setModel(model)
-                .setHints(EnumSet.of(Document.Hint.INTELLI_LAYOUT, Document.Hint.INTELLI_TAG))
-                .setRecipe("sheet.setExtractionThreshold(0)")) {
+                .setHints(EnumSet.of(Document.Hint.INTELLI_LAYOUT))
+                .setRecipe("sheet.setCapillarityThreshold(0)")) {
 
             doc.sheets().forEach(s -> Common.addSheetDebugger(s).getTable().ifPresent(t -> {
                 Common.printHeaders(t.headers());

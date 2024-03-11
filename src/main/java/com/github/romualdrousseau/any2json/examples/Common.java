@@ -24,6 +24,7 @@ import com.github.romualdrousseau.any2json.event.TableReadyEvent;
 
 public class Common {
     private static final Logger LOGGER = LoggerFactory.getLogger(Common.class);
+    private static final String REPO_BASE_URL = "https://raw.githubusercontent.com/RomualdRousseau/Any2Json-Models/main";
 
     public static <T> Model loadModel(final String modelName, final Class<T> clazz) {
         return new Model(JSON.loadObject(Common.getResourcePath(String.format("/models/%s.json", modelName), clazz)));
@@ -31,7 +32,7 @@ public class Common {
 
     public static Model loadModelFromGitHub(final String modelName) {
         try {
-            final var uri = String.format("https://raw.githubusercontent.com/RomualdRousseau/Any2Json-Models/main/%s/%s.json", modelName, modelName);
+            final var uri = String.format("%1$s/%2$s/%2$s.json", REPO_BASE_URL, modelName);
             final var client = HttpClient.newHttpClient();
             final var request = HttpRequest.newBuilder().uri(URI.create(uri)).build();
             final var response = client.send(request, HttpResponse.BodyHandlers.ofString());
