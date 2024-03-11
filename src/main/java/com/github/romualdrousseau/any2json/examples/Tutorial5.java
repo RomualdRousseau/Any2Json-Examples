@@ -26,20 +26,21 @@ public class Tutorial5 implements Runnable {
         // Add a layex to the model
 
         final var tableParser = new LayexTableParser(
-                List.of("v$"),
+                List.of("(v.$)+"),
                 List.of("(()(.+$.+$))(()(E.+$)())+(e.+$)"));
         model.registerTableParser(tableParser);
 
         final var file = Common.loadData("document with pivot.xlsx", this.getClass());
         try (final var doc = DocumentFactory.createInstance(file, "UTF-8")
                 .setModel(model)
-                .setHints(EnumSet.of(Document.Hint.INTELLI_LAYOUT))
+                .setHints(EnumSet.of(Document.Hint.INTELLI_LAYOUT, Document.Hint.INTELLI_TAG))
                 .setRecipe(
                         "sheet.setCapillarityThreshold(0)",
-                        "sheet.setPivotOption(\"WITH_TYPE_AND_VALUE\")")) {
+                        "sheet.setPivotOption(\"WITH_TYPE_AND_VALUE\")",
+                        "sheet.setPivotTypeFormat(\"%s\")")) {
 
             doc.sheets().forEach(s -> Common.addSheetDebugger(s).getTable().ifPresent(t -> {
-                Common.printHeaders(t.headers());
+                Common.printTags(t.headers());
                 Common.printRows(t.rows());
             }));
         }
