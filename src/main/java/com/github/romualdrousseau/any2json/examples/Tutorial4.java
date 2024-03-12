@@ -26,14 +26,13 @@ public class Tutorial4 implements Runnable {
 
         final var tableParser = new LayexTableParser(
                 List.of("(v.$)+"),
-                List.of("(()(S+$))(()([/^TOTAL/|v].+$)())+(/TOTAL/.+$)"));
+                List.of("((es+$)(S+$))(()([/^TOTAL/|v].+$)())+(/TOTAL/.+$)"));
         model.registerTableParser(tableParser);
 
-        final var file = Common.loadData("document with defect.xlsx", this.getClass());
+        final var file = Common.loadData("document with multiple tables.xlsx", this.getClass());
         try (final var doc = DocumentFactory.createInstance(file, "UTF-8")
                 .setModel(model)
-                .setHints(EnumSet.of(Document.Hint.INTELLI_LAYOUT, Document.Hint.INTELLI_TAG))
-                .setRecipe("sheet.setCapillarityThreshold(0)")) {
+                .setHints(EnumSet.of(Document.Hint.INTELLI_LAYOUT, Document.Hint.INTELLI_TAG))) {
 
             doc.sheets().forEach(s -> Common.addSheetDebugger(s).getTable().ifPresent(t -> {
                 Common.printTags(t.headers());
