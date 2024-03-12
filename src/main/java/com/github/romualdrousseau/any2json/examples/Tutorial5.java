@@ -27,7 +27,7 @@ public class Tutorial5 implements Runnable {
 
         final var tableParser = new LayexTableParser(
                 List.of("(v.$)+"),
-                List.of("((es+$)?(S+$S+$))(()([/^TOTAL/|v].+$)())+(/TOTAL/.+$)"));
+                List.of("(()(S+$S+$))(()([/^TOTAL/|v].+$)())+(/TOTAL/.+$)"));
         model.registerTableParser(tableParser);
 
         final var file = Common.loadData("document with pivot.xlsx", this.getClass());
@@ -35,7 +35,7 @@ public class Tutorial5 implements Runnable {
                 .setModel(model)
                 .setHints(EnumSet.of(Document.Hint.INTELLI_LAYOUT, Document.Hint.INTELLI_TAG))
                 .setRecipe(
-                    "sheet.setCapillarityThreshold(0)",
+                        "sheet.setCapillarityThreshold(0)",
                         "sheet.setPivotOption(\"WITH_TYPE_AND_VALUE\")",
                         "sheet.setPivotTypeFormat(\"%s\")")) {
 
