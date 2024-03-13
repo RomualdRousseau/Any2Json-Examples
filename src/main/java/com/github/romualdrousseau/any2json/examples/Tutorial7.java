@@ -20,7 +20,7 @@ public class Tutorial7 implements Runnable {
 
         final var tableParser = new LayexTableParser(
                 List.of("(v.$)+"),
-                List.of("((.+$)(.+$.+$))(()(.+$)(.+$))+()"));
+                List.of("(()(v.+$v.+$))(()(e.+$)+())(v.+$)"));
         model.registerTableParser(tableParser);
 
         final var file = Common.loadData("document with noises.pdf", this.getClass());
@@ -29,9 +29,7 @@ public class Tutorial7 implements Runnable {
                 .setHints(EnumSet.of(Document.Hint.INTELLI_LAYOUT))
                 .setRecipe(
                     "sheet.setCapillarityThreshold(0)",
-                    "sheet.dropNullColumns(0.1)",
-                    "sheet.dropNullRows(0.45)",
-                    "sheet.dropNullColumns(0.1)")) {
+                    "sheet.dropNullRows(0.45)")) {
 
             doc.sheets().forEach(s -> Common.addSheetDebugger(s).getTable().ifPresent(t -> {
                 Common.printHeaders(t.headers());
