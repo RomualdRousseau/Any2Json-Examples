@@ -16,6 +16,8 @@ public class Tutorial7 implements Runnable {
     public void run() {
         final var model = Common.loadModelFromGitHub("sales-english");
 
+        // Add a layex to the model
+
         final var tableParser = new LayexTableParser(
                 List.of("(v.$)+"),
                 List.of("((.+$)(.+$.+$))(()(.+$)(.+$))+()"));
