@@ -1,4 +1,4 @@
-# Any2Json-Examples
+# Any2Json Examples
 
 ![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)
 ![Snyk Known Vulnerabilities](https://snyk.io/test/github/com.github.romualdrousseau/any2json-examples/badge.svg)
