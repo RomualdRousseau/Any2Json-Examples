@@ -14,14 +14,13 @@ public class Tutorial7 implements Runnable {
 
     @Override
     public void run() {
-        final var model = Common.loadModelFromGitHub("sales-english");
-
-        // Add a layex to the model
-
         final var tableParser = new LayexTableParser(
                 List.of("(v.$)+"),
                 List.of("(()(v.+$v.+$))(()(e.+$)+())(v.+$)"));
-        model.registerTableParser(tableParser);
+
+        final var builder = Common.loadModelBuilderFromGitHub("sales-english");
+        builder.setTableParser(tableParser);
+        final var model = builder.build();
 
         final var file = Common.loadData("document with noises.pdf", this.getClass());
         try (final var doc = DocumentFactory.createInstance(file, "UTF-8")
