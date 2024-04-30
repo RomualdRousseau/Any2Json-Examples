@@ -14,8 +14,8 @@ public class Tutorial9 implements Runnable {
     public Tutorial9() {
     }
 
-    public void visitTable(TableGraph root) {
-        root.children().forEach(c -> {
+    public void visitTable(TableGraph parent) {
+        parent.children().forEach(c -> {
             final var table = c.getTable();
             if (table instanceof DataTable) {
                 Common.printHeaders(table.headers());
