@@ -37,7 +37,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <!-- Any2jSon Framework -->
         <shuju.version>1.28</shuju.version>
-        <any2json.version>2.43</any2json.version>
+        <any2json.version>2.44-SNAPSHOT</any2json.version>
         <!-- Other Framework -->
         <log4j.version>2.23.1</log4j.version>
         <!-- Test Framework -->
